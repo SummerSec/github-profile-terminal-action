@@ -23,7 +23,7 @@ func Parser(res string) []string {
 	var maps []string
 	i := 0
 	for _, element := range root.SelectElements("url") {
-		if i > 8 {
+		if i > 9 {
 			break
 		} else if i < 4 {
 			i++

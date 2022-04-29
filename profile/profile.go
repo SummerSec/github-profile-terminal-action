@@ -141,10 +141,11 @@ func (p *Profile) Generate(ctx context.Context, dir string) error {
 		for _, str := range strs {
 			t, _ := url.Parse(str)
 			tp := strings.Split(t.Path, "/")
+			tps := strings.Split(tp[2], ".")
 			if len(tp) < 2 {
 				continue
 			}
-			if _, err := readme.WriteString(fmt.Sprintf("[%s](%s)\n", tp[2], str)); err != nil {
+			if _, err := readme.WriteString(fmt.Sprintf("[%s](%s)\n\n", tps[0], str)); err != nil {
 				return err
 			}
 
@@ -190,7 +191,7 @@ func (p *Profile) Generate(ctx context.Context, dir string) error {
 		return err
 	}
 
-	if _, err := readme.WriteString("\n\n ## Star History :Star: \n <img align='Right' src=\"https://profile-counter.glitch.me/summersec/count.svg\" width=\"200\">\n"); err != nil {
+	if _, err := readme.WriteString("\n\n ## Star History :star: \n\n\n <img align='Right' src=\"https://profile-counter.glitch.me/summersec/count.svg\" width=\"200\">\n"); err != nil {
 		return err
 	}
 	return nil
