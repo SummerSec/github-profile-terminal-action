@@ -4,7 +4,7 @@
 
 
 
-This is the code that generates my [profile README.md](https://github.com/liamg), including the terminal gif.
+This is the code that generates my [profile README.md](https://github.com/SummerSec), including the terminal gif.
 
 You can use it to automatically create your GitHub profile README by adding a GitHub action to your profile repository.
 
