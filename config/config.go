@@ -12,6 +12,7 @@ type Config struct {
 	Theme           string
 	TwitterUsername string
 	FeedURL         string
+	FilePath        string
 }
 
 type GithubContext struct {
@@ -29,6 +30,7 @@ func Derive() (*Config, error) {
 	c.Theme = readInput("theme", "dark")
 	c.TwitterUsername = readInput("twitter_username", "")
 	c.FeedURL = readInput("feed_url", "")
+	c.FilePath = readInput("file_path", "")
 	return &c, nil
 }
 

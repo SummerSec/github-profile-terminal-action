@@ -66,12 +66,21 @@ func (p *Profile) Generate(ctx context.Context, dir string) error {
 		return fmt.Errorf("failed to create output dir: %w", err)
 	}
 
-	readme, err := os.Create(filepath.Join(dir, "README.md"))
-	if err != nil {
-		return fmt.Errorf("failed to create README.md: %w", err)
+	var readme *os.File
+	if p.config.FilePath != "" {
+		readme, err := os.Create(filepath.Join(dir, p.config.FilePath))
+		if err != nil {
+			return fmt.Errorf("failed to create  "+p.config.FilePath+" : %w", err)
+		}
+		defer func() { _ = readme.Close() }()
+	} else {
+		readme, err := os.Create(filepath.Join(dir, "README.md"))
+		if err != nil {
+			return fmt.Errorf("failed to create README.md: %w", err)
+		}
+		defer func() { _ = readme.Close() }()
 	}
-	defer func() { _ = readme.Close() }()
-
+	fmt.Println("Generating profile... " + p.config.FilePath)
 	// 1. hi
 
 	if _, err := readme.WriteString("## Hello 👋\n\n<h2> 𝐇𝐞𝐥𝐥𝐨 𝐭𝐡𝐞𝐫𝐞, 𝐟𝐞𝐥𝐥𝐨𝐰 <𝚌𝚘𝚍𝚎𝚛𝚜/>! <img src=\"./Hi.gif\" width=\"30px\"></h2>\n\n"); err != nil {
