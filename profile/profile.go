@@ -117,7 +117,7 @@ func (p *Profile) Generate(ctx context.Context, dir string) error {
 
 	// 2. social links
 	if p.config.TwitterUsername != "" {
-		twitterLink := fmt.Sprintf("\n [![GitHub SummerSec](https://img.shields.io/github/followers/SummerSec?label=follow%20@SummerSec&style=flat-square)](https://github.com/SummerSec) \n  [![Twitter %s](https://img.shields.io/twitter/follow/%[1]s?style=flat-square)](https://twitter.com/%[1]s)\n\n\n", p.config.TwitterUsername)
+		twitterLink := fmt.Sprintf("\n [![GitHub SummerSec](https://img.shields.io/github/followers/SummerSec?label=follow%20%40SummerSec&style=flat-square)](https://github.com/SummerSec) \n  [![Twitter %s](https://img.shields.io/twitter/follow/%[1]s?style=flat-square)](https://twitter.com/%[1]s)\n\n\n", p.config.TwitterUsername)
 		if _, err := readme.Write([]byte(twitterLink)); err != nil {
 			return err
 		}
