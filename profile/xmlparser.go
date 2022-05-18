@@ -4,6 +4,7 @@ import (
 	"github.com/beevik/etree"
 	"io/ioutil"
 	"net/http"
+	"strings"
 )
 
 func Parser(res string) []string {
@@ -23,13 +24,15 @@ func Parser(res string) []string {
 	var maps []string
 	i := 0
 	for _, element := range root.SelectElements("url") {
-		if i > 9 {
+		if i > 7 {
 			break
-		} else if i < 4 {
-			i++
 		} else {
-			maps = append(maps, element.SelectElement("loc").Text())
-			i++
+			text := element.SelectElement("loc").Text()
+			if !strings.Contains(text, "resources") || strings.Compare(text, "https://sumsec.me/") != 0 {
+				maps = append(maps, text)
+				i++
+			}
+
 		}
 	}
 	return maps
