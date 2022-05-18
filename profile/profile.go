@@ -204,7 +204,7 @@ func (p *Profile) Generate(ctx context.Context, dir string) error {
 		return err
 	}
 	//contribution
-	if _, err := readme.WriteString("\n![github contribution grid snake animation](https://raw.githubusercontent.com/SummerSec/SummerSec/output/github-snake.svg#gh-dark-mode-only)![github contribution grid snake animation](https://raw.githubusercontent.com/SummerSec/SummerSec/output/github-snake.svg#gh-light-mode-only) \n\n"); err != nil {
+	if _, err := readme.WriteString("\n![github contribution grid snake animation](https://raw.githubusercontent.com/SummerSec/SummerSec/output/github-snake.svg#gh-dark-mode-only)\n![github contribution grid snake animation](https://raw.githubusercontent.com/SummerSec/SummerSec/output/github-snake.svg#gh-light-mode-only)\n"); err != nil {
 		return err
 	}
 	//// 5. footer
