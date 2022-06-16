@@ -147,7 +147,7 @@ func (p *Profile) Generate(ctx context.Context, dir string) error {
 			return err
 		}
 	}
-	if _, err := readme.Write([]byte(fmt.Sprintf("<tr><font<td><<strong><font color=blue>Total Stars</font></strong></td><td></td><td> %d ⭐</td></tr>\n", stats.TotalStars))); err != nil {
+	if _, err := readme.Write([]byte(fmt.Sprintf("<tr><font<td><a href='https://github.com/summersec'><strong>Total Stars</strong></a></strong></td><td></td><td> %d ⭐</td></tr>\n", stats.TotalStars))); err != nil {
 		return err
 	}
 	if _, err := readme.Write([]byte("</table>\n\n")); err != nil {
