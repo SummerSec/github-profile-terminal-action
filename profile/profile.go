@@ -86,7 +86,7 @@ func (p *Profile) Generate(ctx context.Context, dir string) error {
 	}
 	// 1. hi
 
-	if _, err := readme.WriteString("## Hello 👋\n\n<h2> 𝐇𝐞𝐥𝐥𝐨 𝐭𝐡𝐞𝐫𝐞, 𝐟𝐞𝐥𝐥𝐨𝐰 <𝚌𝚘𝚍𝚎𝚛𝚜/>! <img src=\"Hi.gif\" width=\"30px\"></h2>\n\n"); err != nil {
+	if _, err := readme.WriteString("<h2> 𝐇𝐞𝐥𝐥𝐨 𝐭𝐡𝐞𝐫𝐞, 𝐟𝐞𝐥𝐥𝐨𝐰 <𝚌𝚘𝚍𝚎𝚛𝚜/>! <img src=\"Hi.gif\" width=\"30px\"></h2>\n\n\n[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&duration=6000&pause=1500&color=2D94F7&width=435&lines=%E4%BD%A0%E5%A5%BD%E5%91%80%F0%9F%91%8B;%E5%83%8F%E6%B8%85%E6%B0%B4%E4%B8%80%E8%88%AC%E6%B8%85%E6%BE%88%E9%80%8F%E6%98%8E)](https://git.io/typing-svg)\n"); err != nil {
 		return fmt.Errorf("failed to write README.md: %w", err)
 	}
 
@@ -115,7 +115,7 @@ func (p *Profile) Generate(ctx context.Context, dir string) error {
 		return err
 	}
 
-	_, err = readme.WriteString("\n [![GitHub SummerSec](https://img.shields.io/github/followers/SummerSec?label=follow%20%40SummerSec&style=flat-square)](https://github.com/SummerSec)")
+	_, err = readme.WriteString("\n[![GitHub SummerSec](https://img.shields.io/github/followers/SummerSec?label=follow%20%40SummerSec&style=flat-square)](https://github.com/SummerSec)")
 	if err != nil {
 		fmt.Println("failed to write README.md: ", err)
 		return err
@@ -123,7 +123,7 @@ func (p *Profile) Generate(ctx context.Context, dir string) error {
 
 	// 2. social links
 	if p.config.TwitterUsername != "" {
-		twitterLink := fmt.Sprintf(" \n  [![Twitter %s](https://img.shields.io/twitter/follow/%[1]s?style=flat-square)](https://twitter.com/%[1]s)\n\n\n", p.config.TwitterUsername)
+		twitterLink := fmt.Sprintf(" \n[![Twitter %s](https://img.shields.io/twitter/follow/%[1]s?style=flat-square)](https://twitter.com/%[1]s)\n\n\n", p.config.TwitterUsername)
 		if _, err := readme.Write([]byte(twitterLink)); err != nil {
 			fmt.Println("failed to write README.md: ", err)
 			return err
