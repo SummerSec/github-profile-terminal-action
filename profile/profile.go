@@ -155,6 +155,7 @@ func (p *Profile) Generate(ctx context.Context, dir string) error {
 	}
 
 	// 4. latest posts (rss)
+
 	if p.config.FeedURL != "" {
 		strs := Parser(p.config.FeedURL)
 		if _, err := readme.WriteString("\n---\n\n## Latest Posts 📝 \n\n"); err != nil {
@@ -168,7 +169,8 @@ func (p *Profile) Generate(ctx context.Context, dir string) error {
 			if len(tp) < 2 {
 				continue
 			}
-			if _, err := readme.WriteString(fmt.Sprintf("[%s](%s)\n\n", tps[0], str)); err != nil {
+			img := GetRandomImage()
+			if _, err := readme.WriteString(fmt.Sprintf(" %s [%s](%s)\n\n", img, tps[0], str)); err != nil {
 				return err
 			}
 
