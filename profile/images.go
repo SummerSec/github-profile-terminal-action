@@ -223,6 +223,17 @@ func GetRandomImage() string {
 		"👛",
 		"👜",
 		"👝",
+		"👞",
+		"👟",
+		"👠",
+		"👡",
+		"👢",
+		"👣",
+		"👤",
+		"👥",
+		"👦",
+		"👧",
+		"👨",
 	}
 	time.Sleep(time.Second * 1)
 	rand.Seed(time.Now().Unix())

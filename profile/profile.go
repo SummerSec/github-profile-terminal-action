@@ -161,7 +161,7 @@ func (p *Profile) Generate(ctx context.Context, dir string) error {
 		if _, err := readme.WriteString("\n---\n\n## Latest Posts 📝 \n\n"); err != nil {
 			return err
 		}
-		readme.WriteString("<img align='right' src=\"https://tva4.sinaimg.cn/large/008k1Yt0ly1h4no500obvg30fk0bo1cn.gif\" width=\"330\" />")
+		readme.WriteString("<img align='right' src=\"https://sumsec.me/resources/work.gif\" width=\"330\" />")
 		for _, str := range strs {
 			t, _ := url.Parse(str)
 			tp := strings.Split(t.Path, "/")
