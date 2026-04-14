@@ -163,6 +163,11 @@ func (p *Profile) Generate(ctx context.Context, dir string) error {
 		}
 		readme.WriteString("<img align='right' src=\"https://sumsec.me/resources/work.gif\" width=\"330\" />")
 		for _, str := range strs {
+	        // 新增：过滤掉以 readme.html 或 ppt.html 结尾的链接（忽略大小写）
+	        lowerStr := strings.ToLower(strings.TrimSpace(str))
+	        if strings.HasSuffix(lowerStr, "readme.html") || strings.HasSuffix(lowerStr, "-ppt.html") {
+	            continue
+	        }
 			t, _ := url.Parse(str)
 			tp := strings.Split(t.Path, "/")
 			tps := strings.Split(tp[2], ".")
